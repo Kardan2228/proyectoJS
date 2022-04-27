@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: gainsboro;
+}
+
+header {
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: gray;
+    margin: auto;
+    padding: 0.5%;
+    position: sticky;
+}
+
+div {
+    box-shadow: 10px 5px 5px black;
+    background-color: darkgray;
+    /*display: flex;*/
+    margin: 10px auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+#tamano,
+#veces {
+    width: 4rem;
+}
+
+#listaResultado {
+    list-style: none;
+}
+
+#borrar,
+#reinicia,
+#borrarOtro {
+    background-color: darkslategray;
+    border: none;
+    border-radius: 2em;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#borrar:hover,
+#reinicia:hover,
+#borrarOtro:hover {
+    background-color: gray;
+    /* Green */
+    color: darkslategray;
+}
