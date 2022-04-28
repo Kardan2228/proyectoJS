@@ -14,7 +14,8 @@ const arrDispositivos = [];
 
 
 class Dispositivo {
-    constructor(tipo, tamano, veces, fecha, hora) {
+    constructor(nDisp, tipo, tamano, veces, fecha, hora) {
+        this.nDisp = nDisp;
         this.tipo = tipo;
         this.tamano = tamano;
         this.veces = veces;
@@ -93,58 +94,37 @@ borrandoDisp.addEventListener(`input`, () => {
     document.getElementById("contadorDisp").innerHTML = `<strong>Evento.</strong> Preparado para borrar el dispositivo Nº <strong>${contadorDisp}: ${dispBorrado}</strong>`;
 })
 
+
 function agregaDispositivo(e) {
     e.preventDefault();
-    contadorDisp++;
+    let nDisp = contadorDisp;
     let tipo = document.getElementById("dispositivo").value;
     let tamano = document.getElementById("tamano").value;
     let veces = document.getElementById("veces").value;
     let fecha = new Date().toDateString();
-    let horas = new Date().getHours;
-    let minutos = new Date().getMinutes;
-    let segundos = new Date().getSeconds;
+    let horas = new Date().getHours();
+    let minutos = new Date().getMinutes();
+    let segundos = new Date().getSeconds();
     let hora = `${horas}:${minutos}:${segundos}`;
 
-    const dispositivoObj = new Dispositivo(tipo, tamano, veces, fecha, hora);
-
-    const dispositivoLS = JSON.stringify(dispositivoObj);
-    localStorage.setItem(dispositivoLS);
-    /*if (dispositivoLS === null) {
-        localStorage.setItem(dispositivoLS);
-        resumen(dispositivoObj);
-    } else {
-        dispositivoLS.push(dispositivoObj);
-        localStorage.setItem(dispositivoLS);
-        resumen(dispositivoLS);
-    }
-    e.target.reset();*/
-}
-
-/*
-function agregaDispositivo(e) {
-    e.preventDefault();
-    contadorDisp++;
-    let tipo = document.getElementById("dispositivo").value;
-    let tamano = document.getElementById("tamano").value;
-    let veces = document.getElementById("veces").value;
-    let fecha = new Date().toDateString();
-    let horas = new Date().getHours;
-    let minutos = new Date().getMinutes;
-    let segundos = new Date().getSeconds;
-    let hora = `${horas}:${minutos}:${segundos}`;
-
-    const dispositivo = new Dispositivo(tipo, tamano, veces, fecha, hora);
-
+    const dispositivo = new Dispositivo(nDisp, tipo, tamano, veces, fecha, hora);
     const dispositivoLS = JSON.parse(localStorage.getItem(contadorDisp));
     if (dispositivoLS === null) {
         localStorage.setItem(contadorDisp, JSON.stringify([dispositivo]));
-        resumen([dispositivo]);
+        contadorDisp++;
+        //resumen([dispositivo]);
     } else {
         dispositivoLS.push(dispositivo);
         localStorage.setItem(contadorDisp, JSON.stringify([dispositivoLS]));
-        resumen(dispositivoLS);
+        contadorDisp++;
+        //resumen(dispositivoLS);
     }
     e.target.reset();
+    document.getElementById("contadorDisp").innerHTML = `<strong>Evento.</strong> Borrado seguro del dispositivo Nº <strong>${contadorDisp - 1}: ${tipo}</strong>`;
+    //let prueba = localStorage.getItem(dispositivo.tipo);
+    console.log(dispositivo);
+    console.log("dispositivoLS")
+    console.log(dispositivoLS);
 }
 
 
