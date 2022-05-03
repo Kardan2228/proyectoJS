@@ -14,7 +14,7 @@ header {
     position: sticky;
 }
 
-div {
+#datos_dispositivo, #resultado_sobreescritura, #log_contadorDisp {
     box-shadow: 10px 5px 5px black;
     background-color: darkgray;
     /*display: flex;*/

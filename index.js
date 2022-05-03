@@ -19,6 +19,7 @@ class Dispositivo {
 }
 
 function resumen() {
+   
     for (const disp of arrDispositivos) {
         nDisp = disp.nDisp;
         tipo = disp.tipo;
@@ -63,6 +64,26 @@ function BorrarOtroDispositivo() {
                                 <hr>`;
 }
 
+function alertaBorrado() {
+    swal({
+        title: "¿Estás seguro?",
+        text: "Una vez borrado el dispositivo, ya no podrás recuperar los archivos",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          swal("¡El dispositivo ha sido borrado con éxito!", {
+            icon: "success",
+            
+          });
+          agregaDispositivo;
+        } else {
+          swal("¡Tu dispositivo sigue intacto!");
+        }
+      });
+}
+
 let borrandoDisp = document.getElementById("dispositivo")
 borrandoDisp.addEventListener(`input`, () => {
     let dispBorrado = borrandoDisp.value;
@@ -97,7 +118,11 @@ function agregaDispositivo(e) {
         resumen(dispositivoLS);
     }
     e.target.reset();
+
+    //alertaBorrado();
+
     document.getElementById("contadorDisp").innerHTML = `<strong>Evento.</strong> Borrado seguro del dispositivo Nº <strong>${contadorDisp - 1}: ${tipo}</strong>`;
 }
 
-let btnBorrar = document.getElementById("frm_datos").addEventListener("submit", agregaDispositivo);
+//let btnBorrar = document.getElementById("frm_datos").addEventListener("submit", agregaDispositivo);
+let btnBorrar = document.getElementById("frm_datos").addEventListener("submit", alertaBorrado);
