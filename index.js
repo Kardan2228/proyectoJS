@@ -26,7 +26,6 @@ class Dispositivo {
 }
 
 function resumen() {
-
     for (const disp of arrDispositivos) {
         nDisp = disp.nDisp;
         tipo = disp.tipo;
