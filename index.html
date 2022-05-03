@@ -30,38 +30,42 @@
             </p>
             <p>
                 <label for="tamano">Tamaño del dispositivo en Mb:</label>
-                <input type="number" id="tamano" name="tamano_dispositivo" required="required" placeholder="Multiplos de 8" step="8000" min= "8000" pattern="^[0-9]+" value=8000>
+                <input type="number" id="tamano" name="tamano_dispositivo" required="required" placeholder="Multiplos de 8" step="8000" min="8000" pattern="^[0-9]+" value=8000>
             </p>
             <p>
                 <label for="veces">Veces a sobreescribir en el dispositivo:</label>
-                <input type="number" id="veces" name="veces_sobreescribir" min= "3" pattern="^[0-9]+" value=3>
+                <input type="number" id="veces" name="veces_sobreescribir" min="3" pattern="^[0-9]+" value=3>
             </p>
 
             <input name="borrar" id="borrar" type="submit" value="Borrar dispositivo">
         </form>
-
     </div>
 
     <div id="resultado_sobreescritura">
         <h2>Resultados del borrado seguro</h2>
-        <!--
+
         <ul id="listaResultado">
-            <li>Dispositivo tipo:</li>
+            <!--<li>Dispositivo tipo:</li>
             <li>Tamaño del dispositivo:</li>
             <li>Veces que fue sobreescrito:</li>
             <li>Fecha de borrado:</li>
-            <li>Hora de borrado:</li>
+            <li>Hora de borrado:</li> -->
         </ul>
-        -->
     </div>
-    <div>
+
+    <div id="log_contadorDisp">
         <input name="reiniciar" id="reinicia" type="button" value="Reiniciar aplicación" onclick="location.reload()">
         <p id="contadorDisp"></p>
     </div>
 
 </body>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
+<!--<script src="/libs/luxon.min.js"></script> -->
 <script src="index.js"></script>
+
+
 
 
 </html>
