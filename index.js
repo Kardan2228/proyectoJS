@@ -4,16 +4,9 @@ let nDisp;
 let tipo;
 let tamano;
 let veces;
-let fecha = luxon.DateTime;
+let fecha;
 let hora;
-
-let fechaActual = fecha.now();
-
-console.log(fechaActual.toString());
-console.log(fechaActual.year);
-console.log(fechaActual.toLocaleString(DateTime.DATETIME_FULL));
-
-
+let fechaActual;
 class Dispositivo {
     constructor(nDisp, tipo, tamano, veces, fecha, hora) {
         this.nDisp = nDisp;
@@ -54,12 +47,14 @@ function bloqueaFormulario() {
     document.getElementById("dispositivo").disabled = true;
     document.getElementById("tamano").disabled = true;
     document.getElementById("veces").disabled = true;
+    document.querySelector("#borrar").disabled = true;
 }
 
 function desbloqueaFormulario() {
     document.getElementById("dispositivo").disabled = false;
     document.getElementById("tamano").disabled = false;
     document.getElementById("veces").disabled = false;
+    document.querySelector("#borrar").disabled = false;
 }
 
 function BorrarOtroDispositivo() {
@@ -76,18 +71,20 @@ function agregaDispositivo(e) {
     tipo = document.getElementById("dispositivo").value;
     tamano = document.getElementById("tamano").value;
     veces = document.getElementById("veces").value;
-
-    /*fecha = new Date().toDateString();
-    let horas = new Date().getHours();
-    let minutos = new Date().getMinutes();
-    let segundos = new Date().getSeconds();
-    hora = `${horas}:${minutos}:${segundos}`;*/
+    let fecha = luxon.DateTime;
+    fechaActual = fecha.now();
+    fecha = fechaActual.toLocaleString();
+    let horas = fechaActual.hour;
+    let minutos = fechaActual.minute;
+    let segundos = fechaActual.second;
+    hora = `${horas}:${minutos}:${segundos}`;
 
     swal({
         title: "¿Estás seguro?",
         text: "Una vez borrado el dispositivo, ya no podrás recuperar los archivos",
         icon: "warning",
-        buttons: true,
+        /*buttons: true,*/
+        buttons: ["Cancelar", "Borrar"],
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {

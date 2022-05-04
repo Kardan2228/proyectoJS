@@ -57,6 +57,31 @@ h2 {
 #reinicia:hover,
 #borrarOtro:hover {
     background-color: gray;
-    /* Green */
     color: darkslategray;
 }
+
+#borrar:disabled {
+    background-color: gray;
+    color: darkslategray;
+}
+
+.swal-overlay {
+    background-color: rgba(72,69,69,0.8);
+  }
+
+  .swal-text {
+    background-color: beige;
+    padding: 17px;
+    border: 1px solid gray;
+    display: block;
+    margin: 22px;
+    text-align: center;
+    color: black;
+  }
+
+  .swal-footer {
+    background-color: gainsboro;
+    margin-top: 32px;
+    border-top: 1px solid #E9EEF1;
+    overflow: hidden;
+  }
