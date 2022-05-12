@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Prueba fetch referencia relativa</h1>
+    <hr />
+    <div id="imagen">
+      <img src="" alt="" />
+    </div>
+    <ul id="listado"></ul>
+  </body>
+  <script>
+    const lista = document.querySelector("#listado");
+    const imagen = document.querySelector("#imagen");
+
+    const dispBuscar = "USB";
+
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((dispositivo) => {
+          if (dispositivo.tipo === dispBuscar) {
+            const div = document.createElement("div");
+            div.innerHTML = `
+             <h4>${dispositivo.tipo}</h4>
+             <p>${dispositivo.descripcion}</p>
+             <img src="${dispositivo.imagen}"></img>
+             <hr/>
+         `;
+
+            lista.append(div);
+          }
+        });
+      });
+  </script>
+</html>

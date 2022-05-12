@@ -18,6 +18,8 @@ class Dispositivo {
     }
 }
 
+
+
 function resumen() {
     for (const disp of arrDispositivos) {
         nDisp = disp.nDisp;
@@ -27,8 +29,12 @@ function resumen() {
         fecha = disp.fecha;
         hora = disp.hora;
         console.log(arrDispositivos);
+
+
+        
     }
-    let generaResumen = document.getElementById("resultado_sobreescritura");
+
+        const generaResumen = document.getElementById("resultado_sobreescritura");
     generaResumen.innerHTML = `<h2>Resultados del borrado seguro</h2>
                             <hr>
                                 <ul id="listaResultado">
@@ -40,7 +46,8 @@ function resumen() {
                                 <li><strong>Hora del procedimento:</strong> ${hora}</li>
                             </ul>
                             <input name="borrarOtro" id="borrarOtro" type="button" value="Borrar otro dispositivo" onclick = "BorrarOtroDispositivo()">`;
-    bloqueaFormulario();
+    
+                            bloqueaFormulario();
 }
 
 function bloqueaFormulario() {
