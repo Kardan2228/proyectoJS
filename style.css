@@ -85,3 +85,9 @@ h2 {
     border-top: 1px solid #E9EEF1;
     overflow: hidden;
   }
+
+  img {
+      max-width: 75%;
+      margin: auto;
+      display: block;
+  }

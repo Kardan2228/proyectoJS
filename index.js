@@ -7,6 +7,7 @@ let veces;
 let fecha;
 let hora;
 let fechaActual;
+let urlImagen;
 class Dispositivo {
     constructor(nDisp, tipo, tamano, veces, fecha, hora) {
         this.nDisp = nDisp;
@@ -18,8 +19,6 @@ class Dispositivo {
     }
 }
 
-
-
 function resumen() {
     for (const disp of arrDispositivos) {
         nDisp = disp.nDisp;
@@ -28,13 +27,9 @@ function resumen() {
         veces = disp.veces;
         fecha = disp.fecha;
         hora = disp.hora;
-        console.log(arrDispositivos);
-
-
-        
     }
 
-        const generaResumen = document.getElementById("resultado_sobreescritura");
+    const generaResumen = document.getElementById("resultado_sobreescritura");
     generaResumen.innerHTML = `<h2>Resultados del borrado seguro</h2>
                             <hr>
                                 <ul id="listaResultado">
@@ -44,10 +39,33 @@ function resumen() {
                                 <li><strong>Veces que fue sobreescrito:</strong> ${veces}</li>
                                 <li><strong>Fecha procedimento:</strong> ${fecha}</li>
                                 <li><strong>Hora del procedimento:</strong> ${hora}</li>
-                            </ul>
-                            <input name="borrarOtro" id="borrarOtro" type="button" value="Borrar otro dispositivo" onclick = "BorrarOtroDispositivo()">`;
-    
-                            bloqueaFormulario();
+                                </ul>
+                                <hr>
+                            `;
+
+    const imagenDispositivo = document.querySelector("#resultado_sobreescritura");
+    const origenJSON = "/data.json";
+
+    fetch(origenJSON)
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((dispositivo) => {
+                if (dispositivo.descripcion === tipo) {
+                    urlImagen = dispositivo.imagen;
+                    const divImagen = document.createElement("div");
+                    divImagen.innerHTML = `
+                    <img src="${urlImagen}"></img>
+                    <hr/>
+                    <input name="borrarOtro" id="borrarOtro" type="button" value="Borrar otro dispositivo" onclick = "BorrarOtroDispositivo()">
+                `;
+                imagenDispositivo.append(divImagen);
+                } 
+
+            });
+        });
+
+    bloqueaFormulario();
+
 }
 
 function bloqueaFormulario() {
@@ -90,7 +108,6 @@ function agregaDispositivo(e) {
         title: "¿Estás seguro?",
         text: "Una vez borrado el dispositivo, ya no podrás recuperar los archivos",
         icon: "warning",
-        /*buttons: true,*/
         buttons: ["Cancelar", "Borrar"],
         dangerMode: true,
     }).then((willDelete) => {
@@ -130,6 +147,5 @@ let borrandoDisp = document.getElementById("dispositivo")
 borrandoDisp.addEventListener(`input`, () => {
     let dispBorrado = borrandoDisp.value;
 
-    console.log(borrandoDisp.value);
     document.getElementById("contadorDisp").innerHTML = `<strong>Evento.</strong> Preparado para borrar el dispositivo Nº <strong>${contadorDisp}: ${dispBorrado}</strong>`;
 })

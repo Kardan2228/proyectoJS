@@ -1,5 +1,5 @@
 [
-    {"id": 1, "tipo": "HDD", "descripcion": "Disco duro mecánico", "imagen": "/images/hdd.jpg"},
-    {"id": 2, "tipo": "SSD", "descripcion": "Disco duro de estado sólido", "imagen": "/images/ssd.jpg"},
-    {"id": 3, "tipo": "USB", "descripcion": "Memoria flash", "imagen": "/images/flash.png"}
+    {"id": 1, "tipo": "HDD", "descripcion": "Disco duro mecánico (HDD)", "imagen": "/images/hdd.png"},
+    {"id": 2, "tipo": "SSD", "descripcion": "Disco duro de estado sólido (SSD)", "imagen": "/images/ssd.png"},
+    {"id": 3, "tipo": "USB", "descripcion": "Memoria flash (USB)", "imagen": "/images/flash.png"}
 ]

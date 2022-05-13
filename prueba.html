@@ -19,13 +19,14 @@
     const lista = document.querySelector("#listado");
     const imagen = document.querySelector("#imagen");
 
-    const dispBuscar = "USB";
+    const dispBuscar = "Disco duro de estado sólido (SSD)";
 
     fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
         data.forEach((dispositivo) => {
-          if (dispositivo.tipo === dispBuscar) {
+          if (dispositivo.descripcion === dispBuscar) {
+            console.log(dispositivo.tipo);
             const div = document.createElement("div");
             div.innerHTML = `
              <h4>${dispositivo.tipo}</h4>
