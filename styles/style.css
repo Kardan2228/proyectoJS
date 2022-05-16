@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: gainsboro;
+    background-image:url(/images/fondo_opaz.png);
+    opacity: 0.95;
+}
+
+header {
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: #00003d;
+    margin: auto;
+    padding: 0.5%;
+    position: sticky;
+    color: #CCC;
+}
+
+#datos_dispositivo, #resultado_sobreescritura, #log_contadorDisp {
+    box-shadow: 10px 5px 5px black;
+    background-color: darkgray;
+    /*display: flex;*/
+    margin: 10px auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+    color: #00003d;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+h2 {
+    color: darkslategray
+}
+
+#tamano,
+#veces {
+    width: 4rem;
+}
+
+#listaResultado {
+    list-style: none;
+}
+
+#borrar,
+#reinicia,
+#borrarOtro {
+    background-color: darkslategray;
+    border: none;
+    border-radius: 2em;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#borrar:hover,
+#reinicia:hover,
+#borrarOtro:hover {
+    background-color: gray;
+    color: darkslategray;
+}
+
+#borrar:disabled {
+    background-color: gray;
+    color: darkslategray;
+}
+
+.swal-overlay {
+    background-color: rgba(72,69,69,0.8);
+  }
+
+  .swal-text {
+    background-color: beige;
+    padding: 17px;
+    border: 1px solid gray;
+    display: block;
+    margin: 22px;
+    text-align: center;
+    color: black;
+  }
+
+  .swal-footer {
+    background-color: gainsboro;
+    margin-top: 32px;
+    border-top: 1px solid #E9EEF1;
+    overflow: hidden;
+  }
+
+  img {
+      max-width: 75%;
+      margin: auto;
+      display: block;
+  }
